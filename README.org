@@ -136,6 +136,16 @@ npm install -g pi-acp
 
 See https://github.com/svkozak/pi-acp for details.
 
+*** Cline
+
+For Cline coding agent, install with:
+
+#+begin_src bash
+npm install -g cline
+#+end_src
+
+See https://docs.cline.bot/cline-cli/ for details.
+
 ** Installation
 
 =agent-shell= is powered by built-in =comint-shell=, via [[https://github.com/xenodium/shell-maker][shell-maker]], available on [[https://melpa.org/#/shell-maker][MELPA]].
@@ -330,9 +340,7 @@ For OAuth login-based authentication:
       (agent-shell-qwen-make-authentication :login t))
 #+end_src
 
-*** Auggie
-
-For login-based authentication (default):
+*** Auggie For login-based authentication (default):
 
 #+begin_src emacs-lisp
 (setq agent-shell-auggie-authentication
@@ -363,9 +371,20 @@ For API key authentication:
 		   (shell-command-to-string "source ~/.vibe/.env; echo $MISTRAL_API_KEY")))))
 #+end_src
 
+*** Cline
+
+For Cline CLI, install with:
+
+#+begin_src bash
+npm install -g cline
+#+end_src
+
+Cline is expected to be set up outside of Emacs using `cline auth` and can be optionally further configured using `cline config` and/or environment variables. Alternatively, you can use the VSCode Cline extension for setup.
+For more detailed configuration information, visit: https://docs.cline.bot/cline-cli/getting-started
+
 *** Customizing Available Agents
 
-By default, =agent-shell= includes configurations for all supported agents (Claude Code, Gemini CLI, Codex, Goose, Qwen Code, and Auggie). You can customize which agents are available through the =agent-shell-agent-configs= variable.
+By default, =agent-shell= includes configurations for all supported agents (Claude Code, Gemini CLI, Codex, Goose, Qwen Code, Auggie, and Cline). You can customize which agents are available through the =agent-shell-agent-configs= variable.
 
 ** Usage
 

@@ -49,6 +49,7 @@
   (error "Please update 'shell-maker' to v0.85.1 or newer"))
 (require 'agent-shell-anthropic)
 (require 'agent-shell-auggie)
+(require 'agent-shell-cline)
 (require 'agent-shell-completion)
 (require 'agent-shell-cursor)
 (require 'agent-shell-diff)
@@ -393,9 +394,10 @@ Returns an alist with all specified values."
   "Create a list of default agent configs.
 
 This function aggregates agents from OpenAI, Anthropic, Google,
-Goose, Cursor, Auggie, and others."
+Goose, Cursor, Auggie, Cline, and others."
   (list (agent-shell-auggie-make-agent-config)
         (agent-shell-anthropic-make-claude-code-config)
+        (agent-shell-cline-make-agent-config)
         (agent-shell-openai-make-codex-config)
         (agent-shell-cursor-make-agent-config)
         (agent-shell-droid-make-agent-config)
@@ -426,6 +428,7 @@ configuration alist for backwards compatibility."
   :type '(choice (const :tag "None (prompt each time)" nil)
                  (const :tag "Auggie" auggie)
                  (const :tag "Claude Code" claude-code)
+                 (const :tag "Cline" cline)
                  (const :tag "Codex" codex)
                  (const :tag "Copilot" copilot)
                  (const :tag "Cursor" cursor)
